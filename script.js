@@ -9,7 +9,7 @@ function draw(){
     container.addEventListener("mousedown", () => {
         mouseDown = true;
     });
-    container.addEventListener("mouseup", () => {
+    document.addEventListener("mouseup", () => {
         mouseDown = false;
     });
     divs.forEach(div => {
@@ -23,8 +23,7 @@ function draw(){
 
 btnSize.addEventListener("click", () => {
     container.textContent = "";
-    let n = prompt("number");
-    createGrid(n);
+    createGrid(getNumber());
 })
 
 btnClear.addEventListener("click", () => {
@@ -32,7 +31,19 @@ btnClear.addEventListener("click", () => {
         div.style.backgroundColor = 'white';
     });
 });
-
+function getNumber(){
+    let n = prompt("Insert size number (min - 9, max - 100)", 16);
+    if (n === null){
+        n = 16
+    } else if (n < 9){
+        alert("Wrong input, try again")
+        return
+    } else if (n > 100){
+        alert("Wrong input, try again")
+        return
+    };
+    return n;
+}
 function createGrid(n){
     for (let i = 0; i < n * n; i++){
         const cell = document.createElement("div");
