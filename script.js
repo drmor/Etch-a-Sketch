@@ -2,7 +2,24 @@ const container = document.querySelector(".container");
 const btnSize = document.getElementById("size");
 const btnClear = document.getElementById("clear");
 const divs = [];
+let mouseDown = false;
 createGrid(16);
+
+function draw(){
+    container.addEventListener("mousedown", () => {
+        mouseDown = true;
+    });
+    container.addEventListener("mouseup", () => {
+        mouseDown = false;
+    });
+    divs.forEach(div => {
+        div.addEventListener('mousemove', () => {
+            if (mouseDown === true){
+                div.style.backgroundColor = 'black';
+            };
+        });
+    });
+};
 
 btnSize.addEventListener("click", () => {
     container.textContent = "";
@@ -24,9 +41,5 @@ function createGrid(n){
         container.appendChild(cell);
         divs.push(cell)
     }
-    divs.forEach(div => {
-        div.addEventListener('mousemove', () => {
-            div.style.backgroundColor = 'black';
-        });
-    });
-}
+    draw()
+};

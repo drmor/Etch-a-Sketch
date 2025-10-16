@@ -17,6 +17,7 @@ body{
     height: 500px;
     border: 1px solid black;
     flex-wrap: wrap;
+    -webkit-user-drag: none;
 }
 .cell{
     display: flex;
