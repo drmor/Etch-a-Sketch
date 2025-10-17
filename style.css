@@ -46,6 +46,7 @@ button{
     box-shadow: 7px 7px rgba(150, 150, 150, 0.3);
 }
 .cell{
+    background-color: white;
     display: flex;
     border: 1px solid rgba(150, 150, 150, 0.1);
     box-sizing: border-box;
@@ -127,4 +128,14 @@ button{
 }
 #white{
     background-color: white;
+}
+#randomColor{
+    transition: 0.1s;
+}
+#randomColor:hover{
+    color: #172554;
+    text-shadow: -0px 4px rgba(255, 0, 0, 0.5),
+               -0px 8px rgba(255, 255, 0, 0.5),
+               -0px 12px rgba(0, 255, 0, 0.5),
+               -0px 16px rgba(0, 0, 255, 0.5);
 }
