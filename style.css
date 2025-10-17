@@ -20,6 +20,9 @@ body{
     margin: 0;
     padding: 0;
 }
+button{
+    cursor: pointer;
+}
 .nav{
     color: #f1f5f9;
     font-family: 'Courier New', Courier, monospace;
@@ -47,19 +50,19 @@ body{
     border: 1px solid rgba(150, 150, 150, 0.1);
     box-sizing: border-box;
 }
-.buttons{
+.tools{
     display: flex;
     align-self: center;
     flex-direction: column;
+    gap: 3em;
 }
-button{
+.button{
     color: #172554;
     background-color: #f1f5f9;
     border: none;
     padding: 1em;
     width: 200px;
     border-radius: 1em;
-    margin-bottom: 1em;
     font-family: 'Courier New', Courier, monospace;
     font-size: larger;
     box-shadow: 5px 7px rgba(150, 150, 150, 0.3);
@@ -68,7 +71,60 @@ button{
     color: lightsalmon;
     transition: 0.3s;
 }
-button:hover{
+.button:hover{
     color: lightsalmon;
     transition: 0.1s;
+}
+.colorChange{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    flex-direction: column;
+    color: #172554;
+    background-color: #f1f5f9;
+    border: none;
+    width: 200px;
+    height: 130px;
+    border-radius: 1em;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: larger;
+    box-shadow: 5px 7px rgba(150, 150, 150, 0.3);
+}
+.colors{
+    max-width: 109px;
+    max-height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+.colors > button{
+    width: 25px;
+    height: 25px;
+    border-radius: 0.5em;
+    border: 1px solid #172554;
+}
+#red{
+    background-color: red;
+}
+#orange{
+    background-color: orange;
+}
+#yellow{
+    background-color: yellow;
+}
+#green{
+    background-color: green;
+}
+#blue{
+    background-color: blue;
+}
+#purple{
+    background-color: purple;
+}
+#black{
+    background-color: black;
+}
+#white{
+    background-color: white;
 }

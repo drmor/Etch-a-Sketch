@@ -1,9 +1,20 @@
 const container = document.querySelector(".container");
 const btnSize = document.getElementById("size");
 const btnClear = document.getElementById("clear");
+const btnColors = document.querySelectorAll(".colorButton");
 const divs = [];
+let colorChoice = "black";
 let mouseDown = false;
 createGrid(16);
+colorChoose();
+
+function colorChoose(){
+    btnColors.forEach(btn => {
+        btn.addEventListener("click", () => {
+            colorChoice = btn.id;
+        });
+    });
+};
 
 function draw(){
     container.addEventListener("mousedown", () => {
@@ -12,10 +23,14 @@ function draw(){
     document.addEventListener("mouseup", () => {
         mouseDown = false;
     });
+    container.addEventListener("click", () => {
+        mouseDown = true;
+        mouseDown = false;
+    });
     divs.forEach(div => {
         div.addEventListener('mousemove', () => {
             if (mouseDown === true){
-                div.style.backgroundColor = 'black';
+                div.style.backgroundColor = colorChoice;
             };
         });
     });
