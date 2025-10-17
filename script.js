@@ -7,7 +7,7 @@ const divs = [];
 const colors = ["red", "orange", "yellow", "green", "blue", "purple", "black"];
 let colorChoice = "black";
 let mouseDown = false;
-let number = 0;
+let number = 16;
 
 createGrid(16);
 colorChoose();
