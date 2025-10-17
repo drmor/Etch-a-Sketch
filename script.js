@@ -7,24 +7,31 @@ const divs = [];
 const colors = ["red", "orange", "yellow", "green", "blue", "purple", "black"];
 let colorChoice = "black";
 let mouseDown = false;
+let number = 0;
 
 createGrid(16);
 colorChoose();
 
-function randomColorDraw(){
-    divs.forEach(rgb => {
-        rgb.addEventListener("mousemove", () => {
-            const rng = Math.floor(Math.random() * colors.length);
-            colorChoice = colors[rng];
-            if (mouseDown === true){
-                rgb.style.backgroundColor = colorChoice;
-            };
-        });  
+function rngColor(e){
+    const rng = Math.floor(Math.random() * colors.length);
+    colorChoice = colors[rng];
+    if (mouseDown === true){
+        e.target.style.backgroundColor = colorChoice;
+    };
+};
+
+function drawRngColor(enable){
+    divs.forEach(div => {
+        if (enable){
+            div.addEventListener("mousemove", rngColor);
+        } else {
+            div.removeEventListener("mousemove", rngColor);
+        }
     });
 };
 
 btnExtra.addEventListener("click", () => {
-    randomColorDraw();
+    drawRngColor(true);
 });
 
 function colorChoose(){
@@ -51,17 +58,20 @@ function draw(){
 };
 
 btnSize.addEventListener("click", () => {
+    drawRngColor(false)
+    colorChoice = "black"
     container.textContent = "";
     createGrid(getNumber());
 });
 
 btnClear.addEventListener("click", () => {
-    divs.forEach(div => {
-        div.style.backgroundColor = "white";
-    });
+    colorChoice = "black"
+    container.textContent = "";
+    createGrid(number)
 });
 function getNumber(){
     let n = prompt("Insert size number (min - 9, max - 100)", 16);
+    number = n;
     if (n === null){
         n = 16;
     } else if (n < 9){
